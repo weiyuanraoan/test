@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-model</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        请输入你的专业：<input type="text" @input="change"><br> 我是一位{{major}}的程序员
+        <button v-on:click="change">改变事件</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                major: 'java'
+            },
+            methods: {
+                sayHi: function() {
+                    alert('你好');
+
+                },
+                change: function() {
+                    // console.log("text");
+                    this.major = event.target.value
+                },
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-model</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        请输入你的专业：<input type="text" v-model="major"><br> 我是一位{{major}}的程序员
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                major: 'java'
+            },
+            method: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
