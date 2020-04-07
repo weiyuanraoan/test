@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-model</title>
+</head>
+<style>
+    .mydiv {
+        width: 400px;
+        height: 220px;
+        background-color: pink;
+    }
+    
+    .red {
+        background-color: red;
+    }
+    
+    .blue {
+        background-color: blue;
+    }
+    
+    .myclass {
+        width: 450px;
+    }
+</style>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        <div :class="{red:temp}" class="mydiv"></div>
+        <div :style=[color,{width:myWidth}] class="mydiv"></div>
+        <div :class=[color,wd] class="mydiv"></div>
+        <input type="text" v-model="color">
+        <input type="text" v-model="myclass">
+        <button type="button" @click="temp=!temp">按钮</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                temp: true,
+                color: 'blue',
+                myWidth: 500,
+                wd: 'myclass'
+            },
+            method: {
+
+            },
+            computed: {
+                getcolor() {
+                    return {
+                        blue: this.temp,
+
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

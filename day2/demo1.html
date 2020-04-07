@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-model</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        <button type="button" @click="creat(1)">增加</button>
+        <button type="button" @click="reduce">减少</button> {{count>10?'大于10':'不大于10'}} {{count}}
+        <input type="text" v-model="mystep">
+        <p v-on:mousemove="remove">鼠标参数 {{x}}</br>{{y}}
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                mystep: 1,
+                x: 1,
+                y: 1
+            },
+            methods: {
+                creat: function(step) {
+                    this.count += step
+                },
+                reduce: function() {
+                    this.count--;
+
+                },
+                remove: function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
