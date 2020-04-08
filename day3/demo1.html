@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-model</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <ul id="v-for-object" class="demo">
+        <div v-for="(value, key, index) in objectArray">
+            姓名：{{value.name}} 年龄:{{value.age}}
+        </div>
+    </ul>
+
+    <script>
+        new Vue({
+            el: '#v-for-object',
+            data: {
+                objectArray: [{
+                    name: '张三',
+                    age: 14
+                }, {
+                    name: '李四',
+                    age: 18
+                }]
+            }
+        })
+        method: {
+
+        }
+    </script>
+</body>
+
+</html>
