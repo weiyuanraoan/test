@@ -1,0 +1,86 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-18 10:29:55
+ * @LastEditTime: 2020-06-18 16:20:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vue项目demo\VueDemo\组件化开发\父组件向子组件传递.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :c-movies="movies" :cmessage="message"></cpn>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <template id="cpn">
+      <div>
+       <ul>
+         <li v-for="item in cMovies">{{item}}</li>
+       </ul>
+      <p>
+        {{cmessage}}
+      </p> 
+      </div>
+        </template>
+    <script>
+        const cpn = {
+            template: '#cpn',
+            // props: ['cmovies', 'cmessage'],
+            props: {
+                //1.类型的限制
+                // cmovies: Array,
+                // cmessage: String
+                //2.提供默认值 以及必传值
+                cmessage: {
+                    type: String,
+                    default: 'aaaaaaa',
+                    required: true
+                },
+                //类型是对象或者数组时 默认值是一个数组
+                cMovies: {
+                    type: Array,
+                    // default: 'aa'
+                    default () {
+                        return [
+
+                        ]
+                    }
+
+                }
+
+            },
+            data() {
+                return {}
+            },
+            methods: {
+
+            }
+        }
+
+        const vue = new Vue({
+            el: '#app',
+            data: {
+                message: '你好啊',
+                movies: ['海王', '海贼王', '海尔兄弟']
+            },
+            methods: {
+
+            },
+            components: {
+                cpn
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-18 08:40:08
+ * @LastEditTime: 2020-06-18 09:08:04
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vue项目demo\VueDemo\组件化开发\组件模板的分离.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <con1></con1> -->
+        <!-- <con2></con2> -->
+        <!-- <cpn></cpn>-->
+        <cpn></cpn>
+
+
+    </div>
+    <!--  通过script来书写 -->
+    <!-- <script type="text/x-template" id="cpn">
+        <div>
+            <h2>阿伟1</h2>
+            <p>阿伟已经死了</p>
+        </div>
+    </script> -->
+    <!-- 通过template来书写 -->
+    <template id="cpn">
+        <div>
+            <h2>阿伟1</h2>
+            <p>阿伟已经死了 呵呵</p>
+            <h3>{{title}}</h3>
+        </div>
+    </template>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //组件构造器
+        Vue.component('cpn', {
+                template: `#cpn`,
+                data() {
+                    return {
+                        title: 'abc'
+                    }
+                }
+            })
+            //注册组件
+
+        //root 类似于顶层组件
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    message: '你好啊'
+                },
+                components: {
+                    // con1: cpnC1,
+                    // con2: cpnC2
+                }
+            })
+            //创建 注册 使用
+    </script>
+</body>
+
+</html>

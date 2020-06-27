@@ -1,0 +1,83 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-18 08:28:51
+ * @LastEditTime: 2020-06-18 08:38:02
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vue项目demo\VueDemo\组件化开发\组件的语法糖注册.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <con1></con1> -->
+        <cpn1></cpn1>
+        <cpn2></cpn2>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //组件构造器
+        // const cpnC1 = Vue.extend({
+        //     template: `         
+        // <div>
+        // <h2>阿伟1</h2>
+        // <p>阿伟已经死了</p>
+        // </div>`
+        // })
+
+        // const cpnC2 = Vue.extend({
+        //         template: `         
+        // <div>
+        // <h2>阿伟2</h2>
+        // <p>阿伟已经跑了</p>
+        // <con1></con1>
+        //  </div>`,
+        //         components: {
+        //             con1: cpnC1
+        //         }
+        //     })
+        Vue.component(
+                'cpn1', {
+                    template: `
+         <div>
+         <h2>阿伟1</h2>
+         <p>阿伟已经死了</p>
+         </div>`
+
+
+                })
+            //注册组件
+
+        //root 类似于顶层组件
+        const app = new Vue({
+                el: '#app',
+                data: {
+                    message: '你好啊'
+                },
+                components: {
+                    'cpn2': {
+                        template: `
+                     <div>
+         <h2>阿伟1</h2>
+         <p>阿伟已经死了</p>
+         </div>
+                     `
+                    }
+                }
+            })
+            //创建 注册 使用
+    </script>
+</body>
+
+</html>

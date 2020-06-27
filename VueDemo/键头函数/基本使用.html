@@ -1,0 +1,35 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-25 14:46:12
+ * @LastEditTime: 2020-06-25 21:20:35
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vue项目demo\VueDemo\键头函数\基本使用.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //什么时候使用键头函数 回调函数  
+        // 键头函数的this 是如何查找的？(最近的作用域) 
+        //向外层作用域中一层层查找，直到有this的定义 
+        const obj = {
+            aaa() {
+                setTimeout(() => {
+
+
+                }, 1000)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

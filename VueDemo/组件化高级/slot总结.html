@@ -1,0 +1,54 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-21 10:00:20
+ * @LastEditTime: 2020-06-21 10:08:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vue项目demo\VueDemo\组件化高级\slot总结.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <cpn></cpn>
+    </div>
+
+    <template id="cpn">
+  <div>
+    <slot>
+    <ul>
+      <li v-for="item in planguage">{{item}}</li>
+    </ul>
+   </slot>
+  </div>
+</template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            components: {
+                cpn: {
+                    template: "#cpn",
+                    data() {
+                        return {
+                            planguage: ['javascript', 'c++', 'java', 'python']
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

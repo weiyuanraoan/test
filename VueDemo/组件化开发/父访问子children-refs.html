@@ -1,0 +1,77 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-20 21:04:17
+ * @LastEditTime: 2020-06-20 21:34:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \Vue项目demo\VueDemo\组件化开发\父访问子children-refs.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- <cpn></cpn>
+        <cpn></cpn> -->
+        <cpn ref="aaa"></cpn>
+        <button @click="btnclick">按钮</button>
+    </div>
+    <template id="cpn">
+  <div>我是子组件</div>
+</template>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: '你好啊'
+            },
+            methods: {
+                btnclick() {
+                    // 1.$children
+                    // console.log(this.$children);
+                    // for (let c of this.$children) {
+                    //     console.log(c.name);
+                    //     c.showMessage()
+                    // }
+                    // this.$children[0].showMessage()
+                    // console.log(this.$children.name);
+                    // console.log(this.$children[0].name); 
+                    // 2.$refs
+                    //  ref:"aaa"
+                    // 类似于设置key
+                    console.log(this.$refs);
+
+
+                }
+            },
+            components: {
+                cpn: {
+                    template: "#cpn",
+                    methods: {
+                        showMessage() {
+                            console.log('showmessage');
+
+                        }
+                    },
+                    data() {
+                        return {
+                            name: '我是子组件的name'
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
